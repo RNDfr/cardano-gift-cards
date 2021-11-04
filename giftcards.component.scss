@@ -1,0 +1,572 @@
+
+.back {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 2em;
+    color: rgba(240, 248, 255, 0.74);
+    z-index: 2;
+    padding: 0.98em;
+    cursor: pointer;
+
+    
+    @media screen and (max-width: 900px) {
+        font-weight: bold;
+        font-size: 2.5em;
+        color: rgba(255, 8, 160, 0.9);
+    }
+
+}
+.gift-card-component-wrapper{
+
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+
+
+    .break {
+        flex-basis: 100%;
+        height: 0;
+      }
+
+    .licence  {
+        color:aliceblue;
+        text-align: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.2em;
+    }
+
+    
+
+    > div {
+        flex: 1;
+      }
+
+      
+      > div.faq {
+        font-size: 1.2em;
+        color: white;
+        flex:unset;
+        width: 40em;
+        margin: 2em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 4em;
+
+        p{
+            padding-bottom: 1em;
+        }
+
+        h3 {
+            color: teal;
+            //text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5); 
+        }
+    }
+    
+
+
+     .gift-card-wrapper {
+        flex: 0;
+     } 
+
+     .img-select-wrapper{
+
+        //min-width: 200px;
+        min-width: 12em;
+        max-height: 100%;
+
+        padding-top: 4em;
+        padding-bottom: 4em;
+   
+    .img-select {
+        direction:rtl;
+        text-align: left;
+        max-height: 95vh;
+   
+        max-width: 30vw;
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: auto;
+
+        @media screen and (max-width: 900px) {
+
+            min-width: 37em;
+        }
+
+        .card-img {
+
+            // width: 14vw;
+            // height: 8vw;
+
+            width: 250px;
+            height: 141px;
+
+            @media screen and (max-width: 1536px) {
+                width: 200px;
+            }
+
+            
+            @media screen and (max-width: 980px) {
+
+            
+                width: 250px;
+                height: 141px;
+            }
+
+            border: solid gray .1em;
+            border-radius: .5em;
+            margin: auto;
+            margin-top: 1em;
+
+            cursor: pointer;
+
+            transition: box-shadow .3s;
+
+        }
+
+        
+        .card-img:hover {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+        }
+    }
+
+    }
+
+
+
+    .options {
+
+        //min-width: 280px;
+        min-width: 16em;;
+
+        h1 {
+            font-size: 1.75em;
+            @media screen and (max-width: 1536px) {
+                font-size: 1.45em;
+            }
+
+        }
+
+        .input-wrapper {
+            color: aliceblue;
+            margin: 11%;
+            margin-left:auto;
+            margin-right:auto;
+            width: 78%;
+            @media screen and (max-width: 1536px) {
+                width: 87%;
+            }
+        
+            border: solid 0.1em rgb(20.8, 21.2, 47.8);
+            border-radius: 0.5em;
+            > div {
+ 
+      
+            }
+     
+        .input-group {
+            display: inline-grid;
+            font-size: 1.2em;
+            text-align: left;
+
+            margin: 3.25%;
+            @media screen and (max-width: 1536px) {
+                margin: 2.55%;
+            }
+
+            @media screen and (max-width: 900px) {
+                font-size: 2em;
+            }
+        
+  
+            label {
+                color: aliceblue;
+            }
+   
+            input {
+                font-size: 1em;
+            }
+            
+        }
+
+        .inline {
+            display: inline;
+        }
+
+        .text {
+
+            font-size: 1.2em;
+            width: 80%;
+
+            margin: 5%;
+            @media screen and (max-width: 1536px) {
+                margin: 3%;
+                margin-left: auto;
+                margin-right: auto;
+                margin-bottom: 6%;
+            }
+        
+            margin-bottom: 6%;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid 0.1em rgb(48, 47, 21);
+            padding: .5em;
+
+            p{
+                margin: 0;
+                border-radius: 0.5em;
+            }
+        }
+
+        .inline-block {
+            display: inline-block;
+            margin-top: 2%;
+            @media screen and (max-width: 1536px) {
+                margin-top: 1.2%;
+            }
+        
+        }
+
+        .chk-small {
+            position: relative;
+            label {
+                font-size: 0.85em;
+                @media screen and (max-width: 1536px) {
+                    font-size: 0.78em;
+                }
+
+                
+            a {
+                color: rgb(0, 160, 160);
+                //font-weight: bold;
+            }
+            }
+            input {
+ 
+                
+                height: .9em;
+                width:  .9em;
+            }
+
+
+        }
+
+
+        .chk {
+            position: relative;
+            .input-group{
+               // margin-right: 0;
+               margin-left: 0;
+            }
+
+            label {
+                font-size: .9em;
+            }
+           
+            input {
+                height: 1.2em;
+                width: 1.2em;
+
+                margin: 0;
+   
+                position: sticky;
+                top: 50%;
+
+                -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .btn-final, .btn {
+            button{
+                font-size: 1.1em; 
+
+            }
+        }
+
+        .btn-final {
+
+            @media screen and (max-width: 900px) {
+                font-size: 1.8em;
+            }
+
+            p {
+                text-align: center;
+                font-size: .9em;
+                opacity: .8;
+            }
+            button{
+                font-size: 1.2em; 
+                background-color:rgba(0, 21, 139, 0.9);
+                color: white;
+            }
+
+            button:disabled{
+                background-color:unset;
+                color:unset;
+            }
+
+        }
+
+        .btn {
+  
+          
+
+            button:disabled{
+                background-color: teal;
+                color: white;
+            
+            }
+        }
+
+    }
+    }
+}
+.gift-card-wrapper {
+
+
+    //min-width: 515px;
+    min-width: 37em;
+
+}
+
+
+.card-holder {
+    font-size: 1.5em;
+
+    padding-top: 4em;
+    padding-bottom: 4em;
+
+    .blank {
+        color: rgba(255, 255, 255, 0);
+
+        text-shadow: none;
+
+        
+    }
+
+    .blank.words {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    .card-front, .card-back {
+        border: solid gray .1em;
+        border-radius: .5em;
+        width: 500px;
+        min-height: 283px;
+        margin: auto;
+    }
+
+    .card-back {
+        background: lightgrey;
+        position: relative;
+        .password-info{
+            font-size: .8em;
+            display: flex;
+
+
+        .password-label,  .password {
+            margin: .5em;
+            padding: .5em;
+        }
+            
+        .password-label {
+            
+            margin-left: auto;
+        }
+        .password {
+            margin-left: 0;
+            margin-right: 2em;
+            background-color: white;
+        }
+
+         }
+        .card-back-infos {
+ 
+            padding-left: 1.8em;
+            padding-right: 1.8em;
+            a {
+                color: teal;
+                text-decoration: none;
+            }
+            .warning {
+                color: rgb(0, 0, 80);
+                margin-top: 0;
+                margin-bottom: .2em;
+            }
+            font-size: .8em;
+
+            .text {
+                overflow-wrap: anywhere;
+                margin-top: 0;
+                margin-bottom: .1em;
+
+                i {
+                    font-size: .8em;
+                }
+            }
+ 
+        }
+
+                   
+        .infos{
+            display: flex;
+            color: gray;
+            font-size: .6em;
+         
+               
+                position: absolute;
+                width: 100%;
+                bottom: 0.8em;
+                left: 0;
+
+            .date, .website {
+                margin: 1em;
+                margin-top: 1.2em;
+            }
+            .date {
+                padding-left: 2em;
+            }
+
+            .website {
+                margin-left: auto;
+                padding-right: 2em;
+            }
+
+     
+        }
+    }
+
+    .card-front{
+        margin-bottom: .8em;
+      
+        text-shadow: .1em .1em .1em black;
+   
+        //background: url("/assets/img/gifts2.jpg");
+        //background: url("/assets/img/gifts.jpg");
+        //background: url("/assets/img/car.jpg");
+        //background: url("/assets/img/pool.jpeg");
+       //background: url("/assets/img/palm_trees.jpg");
+       -webkit-transition: background-image 100ms linear;
+       -ms-transition: background-image 100ms linear;
+       transition: background-image 100ms linear;
+      
+
+
+        .words{
+            margin: .8em;
+            padding: 0;
+            margin-bottom: 0;
+            font-size: 1.2em;
+        }
+        .card-infos{
+            display: flex;
+            //padding-bottom: .4em;
+            padding-top: .8em;
+        }
+        .name{
+
+            padding-right: 1em;
+            padding-left: 2em;
+        }
+        .amount{
+    
+            margin-left: auto;
+            width: fit-content;
+            padding-left: 1em;
+            padding-right: 2em;
+            .sign {
+                font-size: 1.1em;
+            }
+        }
+        }
+     
+}
+
+.loader-wrapper {
+    z-index: 2;
+    background-color: rgba(90, 90, 90, 0.6);
+    position: absolute;
+    top:0;
+    height: 100%;
+    width: 100%;
+
+    .loader {
+
+        margin: 0;
+        margin-left: -68px;
+        margin-top: -136px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        
+        border: 16px solid #f3f3f378;
+        border-radius: 50%;
+        border-top: 16px solid #3498db7c;
+        width: 120px;
+        height: 120px;
+        -webkit-animation: spin 2s linear infinite; /* Safari */
+        animation: spin 2s linear infinite;
+      }
+      
+      /* Safari */
+      @-webkit-keyframes spin {
+        0% { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+}
+
+.github{
+    padding: 0em;
+    padding-top: 2em;
+    font-size: 1.2em;
+    position: relative;
+    a {
+      display: inline-block;
+      position: relative;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: aliceblue;
+      border-radius: .2em;
+      
+      text-decoration: none;
+  
+  
+    }
+  
+    a:hover {
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+  
+  
+  
+    .btn-github-text {
+        padding: .2em;
+      padding-left: 2.2em;
+      padding-right: .55em;
+      top: 50%;
+      position: relative;
+      margin-bottom: .05em;
+    }
+  
+    .btn-github-icon{
+      position: absolute;
+      width: 1.3em;
+      height: 1.3em;
+      top: 50%;
+      left: .5em;
+      margin-top: -.66em;
+      background: url('/assets/img/github.webp') 1px center no-repeat;
+      background-size: 1.2em;
+    }
+  }
