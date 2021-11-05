@@ -142,7 +142,7 @@
         <div class="github">
             <a href="https://github.com/RNDfr" target="_blank" alt="View source code on github">
             <i class="btn-github-icon"> </i>
-            <div i18n class="btn-github-text">{{t("view_github")}}</div>
+            <div class="btn-github-text">{{t("view_github")}}</div>
             </a>
           </div>
         </div>
@@ -153,6 +153,12 @@
 
 
 <div [hidden]="!loading" class="loader-wrapper">
-<div class="loader"></div>
+<div *ngIf="!cardRdy"  class="loader center"></div>
+<div *ngIf="cardRdy" class="btn-rdy center">
+    <span (click)="closeLoading()" class="close">x</span>
+    <p>{{t("card_rdy")}}</p>
+    <button (click)="openCard()">{{t("open")}}</button>
+</div>
+
 </div>
 

@@ -232,8 +232,10 @@
         }
 
         .chk-small {
+ 
             position: relative;
             label {
+                
                 font-size: 0.85em;
                 @media screen and (max-width: 1536px) {
                     font-size: 0.78em;
@@ -495,17 +497,48 @@
     height: 100%;
     width: 100%;
 
-    .loader {
+    .btn-rdy {
+        font-size: 1.5em;
+        border-radius: 0.5em;
+        background-color: #7c8190;
+        padding: 1.5em;
+        border: 0.1em solid lightgrey;
+        color: aliceblue;
+        position: relative;
+        button{
+            font-size: 1em;
+            background-color:rgba(0, 21, 139, 0.9);
+            color: white;
 
+        }
+
+        .close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding-right: 0.5em;
+            cursor: pointer;
+            color: #4e558b;
+            font-family: arial;
+        }
+    }
+
+
+
+    .center {
         margin: 0;
-        margin-left: -68px;
-        margin-top: -136px;
+
         position: fixed;
         top: 50%;
         left: 50%;
         -ms-transform: translate(-50%, -50%);
         transform: translate(-50%, -50%);
-        
+    }
+
+    .loader {
+        margin-left: -68px;
+        margin-top: -136px;
+
         border: 16px solid #f3f3f378;
         border-radius: 50%;
         border-top: 16px solid #3498db7c;

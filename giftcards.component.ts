@@ -20,7 +20,13 @@ export class GiftcardsComponent implements OnInit {
   eulaLink = "/en/eula"
   address = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
   words="xxxx xxxxx xxx xxxx xxxx xxxxxx xxxx xxxx xxxx xxxxx xxx xxxxxx xxxx xxxxxx xxxxx xxxxx xxxx xxxx xxx xxxxx xxxx xxxxxx xxxx xxxxx"
+  
+  rdyMnemonic = this.words;
+  rdyAddress = this.address;
+
+  cardRdy = false;
   loading = false;
+
   date;
   cardTitle = "CARDANO GIFT CARD"
   cardAmount = "5.00";
@@ -51,32 +57,39 @@ export class GiftcardsComponent implements OnInit {
 
   }
 
-  public async generateCard(){
 
+  public generateCard(){
 
-    var mnemonic = this.words;
-    var address = this.address;
-    var password = this.password;
 
     if(this.createWallet){
-      this.loading = true;
-    }
-    setTimeout(t => {
-    
-      if(this.createWallet){
-        var tempmonic = generateMnemonicWords();
-        
-        // if(this.isolatePassword){
-        //   password = "GFT"+ this.makepswd(11);
-        // }else{
-        //   password = "GFT"+ this.makepswd(4);
-        // }
-        
-        mnemonic = joinMnemonicWords(tempmonic);
-        address = this.getAddress(tempmonic);
-      }
 
-      var printWindow = window.open('/assets/blank.html', '', '');
+      this.loading = true;
+
+      setTimeout(t => {
+    
+  
+        var tempmonic = generateMnemonicWords();
+      
+        this.rdyMnemonic = joinMnemonicWords(tempmonic);
+        this.rdyAddress = this.getAddress(tempmonic);
+    
+        this.cardRdy = true;
+      },50);
+
+
+    }else{
+
+      this.openCard();
+
+    }
+
+
+
+  }
+
+  openCard(){
+
+    var printWindow = window.open('/assets/blank.html', '', '');
 
       printWindow.document.title = this.t("cardano_gift_card");
       printWindow.document.write('<html><head><title>'+ this.t("cardano_gift_card") +'</title>');
@@ -99,25 +112,19 @@ export class GiftcardsComponent implements OnInit {
         printWindow.document.write('<div class="div-btn"><h3></h3><button onclick="window.print()">'+ this.t("print_save_as") +'</button><h3></h3></div>');
       }
 
-      printWindow.document.write(document.getElementById("gift-card-wrapper").innerHTML.replace(this.words, mnemonic).replace(this.address,address).replace(this.password,password));
+      printWindow.document.write(document.getElementById("gift-card-wrapper").innerHTML.replace(this.words, this.rdyMnemonic).replace(this.address, this.rdyAddress));
       printWindow.document.write('<div class="disclaimer" >'+ this.t('disclaimer')+'</div>');
       printWindow.document.write('<div class="instructions" style="text-align: center; font-size: 1.2em;"> <div style="margin-left: auto; margin-right: auto; "><h3 >'+this.t('how_to_retrieve') +'</h3> <p>'+this.t('someone_gifted_you') +'</p><h4 class="top-margin">1. '+  this.t('download_wallet')+'</h4> <p>'+ this.t("in_order_to_retrieve") +'</p> <ul style="width: fit-content; text-align: left; margin-left: auto; margin-right: auto;"> <li><b>yoroi-wallet:</b> <a target="_blank" href="https://www.yoroi-wallet.com/">yoroi-wallet.com</a></li> <li><b>daedalus:</b> <a target="_blank" href="https://daedaluswallet.io/">daedaluswallet.io</a></li> </ul> <h4 class="top-margin">2. '+ this.t("restore_wallet")+'</h4> <p>'+ this.t("your_gift_card_is") +'</p> <ul style="width: fit-content; text-align: left; margin-left: auto; margin-right: auto;"> <li><b>yoroi-wallet:</b> Add new wallet > Restore wallet > Cardano > Enter a 24 words recovery phrase</li> <li><b>daedalus:</b> Add wallet > Restore > Daedalus wallet > 24 words</li> </ul> <h4 class="top-margin">3. '+ this.t("move_funds_to_your") +'</h4> <p>'+this.t("once_you_can_access") +'</p> <ul style="width: fit-content; text-align: left; margin-left: auto; margin-right: auto;"> <li><b>yoroi-wallet:</b> Add new wallet > Create wallet > Cardano > Create wallet > (follow steps ...) > Receive</li> <li><b>daedalus:</b> Add wallet > Create > (follow steps ...) > Receive</li> </ul> <p>'+ this.t("go_to_your_gift_card") +'</p> <h4 class="top-margin">4. '+ this.t("stay_safe") +'</h4> <p>'+ this.t("you_should_be_good_to_go")+'</div> </p> <p style="font-size: 0.8em; margin-top:0; bottom: 0em; width: 100%; opacity: 0.8;">'+ this.t("brough_to_you_by") +' randomfrenchpool.com [RND🇫🇷] ('+ this.t("cardano_staking_pool") +').</p> </div>');
       printWindow.document.write('</body></html>');
       printWindow.document.close();
 
-      // if(this.isolatePassword){
-      //   printWindow.alert("Card password: "+ password +" (make sure you write it down)")
-      //   var entry = printWindow.prompt("Enter card password","")
-  
-      //   if(entry != password){
-      //     printWindow.close();
-      //   }
-      // }
+      this.closeLoading();
 
-      this.loading = false;
-    },50);
+  }
 
-
+  closeLoading() {
+    this.cardRdy = false;
+    this.loading = false;
   }
 
 
