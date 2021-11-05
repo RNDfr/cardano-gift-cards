@@ -1,50 +1,61 @@
-
-
 <div class="gift-card-component-wrapper">
 
-    
-<div  (click)="goback()" class="back">{{t("go_back")}}</div>
-    
-    <div class="img-select-wrapper">
-    <div class="img-select">
-        
-        <div (click)="changeImage(i)" *ngFor="let img of imgs; let i = index"  class="card-img" [ngStyle]="{'background': 'url(/assets/img/'+ imgs[i] +') center center / 250px'}">
-        </div>
 
-    </div>
+    <div (click)="goback()" class="back">{{t("go_back")}}</div>
+
+    <div class="img-select-wrapper">
+        <div class="img-select">
+
+            <div (click)="changeImage(i)" *ngFor="let img of imgs; let i = index" class="card-img"
+                [ngStyle]="{'background': 'url(/assets/img/'+ imgs[i] +') center center / 250px'}">
+            </div>
+
+        </div>
 
     </div>
 
     <div id="gift-card-wrapper" class="gift-card-wrapper">
 
-    <div id="card-holder" class="card-holder">
-        
-        <div id="card-front" class="card-front" [ngStyle]="{'background': 'url(/assets/img/'+ imgs[selectedimg] +') center center / 500px', 'color': cardColor}">
-            <p [ngClass]="{'blank': !createWallet}" class="words">{{words}}</p>
+        <div id="card-holder" class="card-holder">
 
-      
-            <div class="card-infos">
-            <p class="name">{{cardTitle}}</p> <p class="amount">{{cardAmount}} <b class="sign">₳</b></p>
+            <div id="card-front" class="card-front"
+                [ngStyle]="{'background': 'url(/assets/img/'+ imgs[selectedimg] +') center center / 500px', 'color': cardColor}">
+                <p [ngClass]="{'blank': !createWallet}" class="words">{{words}}</p>
+
+
+                <div class="card-infos">
+                    <p class="name">{{cardTitle}}</p>
+                    <p class="amount">{{cardAmount}} <b class="sign">₳</b></p>
+                </div>
             </div>
-        </div>
-        <div class="card-back">
-            <div class="password-info"> <p  class="password-label"><!--Password: </p><p *ngIf="!isolatePassword" [ngClass]="{'blank': !createWallet}" class="password">{{password}}</p><p *ngIf="isolatePassword" [ngClass]="{'blank': !createWallet}" class="password">*********** --></p></div>
-            <div class="card-back-infos">
-                <p i18n class="warning">Warning: Do not use this card wallet as your own; transfer card funds out to a secure account.</p>
-                <p i18n class="text">Use Cardano recommended wallets to retrieve your funds: <a>yoroi-wallet.com</a> or <a>daedaluswallet.io</a>.</p>
-                <p i18n class="text charging" [ngClass]="{'blank': !createWallet}"><i>Charging address (never recharge if already used): <span id="address">{{address}}</span></i></p>
+            <div class="card-back">
+                <div class="password-info">
+                    <p class="password-label">
+                        <!--Password: </p><p *ngIf="!isolatePassword" [ngClass]="{'blank': !createWallet}" class="password">{{password}}</p><p *ngIf="isolatePassword" [ngClass]="{'blank': !createWallet}" class="password">*********** -->
+                    </p>
+                </div>
+                <div class="card-back-infos">
+                    <p i18n class="warning">Warning: Do not use this card wallet as your own; transfer card funds out to
+                        a secure account.</p>
+                    <p i18n class="text">Use Cardano recommended wallets to retrieve your funds: <a>yoroi-wallet.com</a>
+                        or <a>daedaluswallet.io</a>.</p>
+                    <p i18n class="text charging" [ngClass]="{'blank': !createWallet}"><i>Charging address (never
+                            recharge if already used): <span id="address">{{address}}</span></i></p>
 
-                
-        
-           
+
+
+
+                </div>
+                <div class="infos">
+                    <p class="date">gen. {{date}}</p>
+                    <p class="website">randomfrenchpool.com</p>
+                </div>
+
             </div>
-            <div class="infos"><p class="date">gen. {{date}}</p>  <p class="website">randomfrenchpool.com</p></div>    
 
         </div>
 
-    </div>
 
-    
 
     </div>
 
@@ -53,25 +64,25 @@
 
         <div class="input-wrapper">
             <h1 i18n>Cardano Gift Card Generator</h1>
-        <div>
-            <div class="input-group">
-                <label i18n for="cardTitle" >Title</label>
-                <input type="text" id="cardTitle" [(ngModel)]="cardTitle">
-            </div>
-            <div class="input-group">
-                <label i18n for="cardAmount" >Amount</label>
-                <input type="text" id="cardAmount" [(ngModel)]="cardAmount">
-            </div>
-        
+            <div>
+                <div class="input-group">
+                    <label i18n for="cardTitle">Title</label>
+                    <input type="text" id="cardTitle" [(ngModel)]="cardTitle">
+                </div>
+                <div class="input-group">
+                    <label i18n for="cardAmount">Amount</label>
+                    <input type="text" id="cardAmount" [(ngModel)]="cardAmount">
+                </div>
+
 
                 <!-- <div class="input-group">
                 <label for="cardColor" >Text Color</label>
                 <input type="color" id="cardColor" [(ngModel)]="cardColor">
                 </div> -->
-        </div>
+            </div>
 
-        <div>
-            <!-- <div class="input-group chk inline"  [ngStyle]=" !createWallet ? {'filter': 'blur(3px)'} : {}">
+            <div>
+                <!-- <div class="input-group chk inline"  [ngStyle]=" !createWallet ? {'filter': 'blur(3px)'} : {}">
                 <input type="checkbox" id="isolatePassword" [disabled]="!createWallet" [(ngModel)]="isolatePassword">
         
                 <div class="input-group">
@@ -82,70 +93,75 @@
 
             </div> -->
 
-            <div class="input-group btn ">
-    
-                <button i18n (click)="toggleWalletCreation()" [disabled]="createWallet">Create Wallet</button>
-                <button i18n (click)="toggleWalletCreation()" [disabled]="!createWallet" >Template Only</button>
+                <div class="input-group btn ">
+
+                    <button i18n (click)="toggleWalletCreation()" [disabled]="createWallet">Create Wallet</button>
+                    <button i18n (click)="toggleWalletCreation()" [disabled]="!createWallet">Template Only</button>
+                </div>
+
             </div>
 
-        </div>
+            <div class="text" [ngStyle]=" !createWallet ? {'filter': 'blur(3px)'} : {}">
+                <span>⚠️</span>
+                <p i18n>Make sure nobody can see your screen.</p>
+                <p i18n>This service is provided without warranties and presents a risk for you to lose your assets.</p>
 
-        <div class="text"  [ngStyle]=" !createWallet ? {'filter': 'blur(3px)'} : {}">
-            <span>⚠️</span>
-            <p i18n>Make sure nobody can see your screen.</p>
-            <p i18n>This service is provided without any warranty and present a risk for you to lose your assets. We shall not be liable for any damage induced.</p>
+            </div>
 
-        </div>
-
-        <!-- <div class="text"  [ngStyle]=" (!isolatePassword||!createWallet) ? {'filter': 'blur(3px)'} : {}">
+            <!-- <div class="text"  [ngStyle]=" (!isolatePassword||!createWallet) ? {'filter': 'blur(3px)'} : {}">
             <p [ngStyle]="{'text-align': 'left'}">Detached password: </p>
 
         </div> -->
 
-        <div class="inline-block">
-            <div class="input-group chk-small inline">
-                <input type="checkbox" id="agreeTerms" [(ngModel)]="agreeTerms">
-                <label i18n for="agreeTerms" >I agree to randomfrenchpool.com's <a [href]="eulaLink" target="_blank">terms of service</a>.</label>
+            <div class="inline-block">
+                <div class="input-group chk-small inline">
+                    <input type="checkbox" id="agreeTerms" [(ngModel)]="agreeTerms">
+                    <label i18n for="agreeTerms">I agree to randomfrenchpool.com's <a [href]="eulaLink"
+                            target="_blank">terms of service</a>.</label>
+                </div>
+
+
+                <div class="input-group btn-final ">
+
+                    <button i18n (click)="generateCard()" [disabled]="!agreeTerms">Generate Card</button>
+                    <p i18n>Instructions included.</p>
+                </div>
             </div>
 
-            
-            <div class="input-group btn-final ">
-    
-                <button i18n (click)="generateCard()" [disabled]="!agreeTerms">Generate Card</button>
-                <p i18n>Instructions included.</p>
-            </div>
         </div>
-
     </div>
-    </div>
-    <div class="break"></div> 
-<!-- 
+    <div class="break"></div>
+    <!-- 
     <p class="licence">
     </p> -->
 
     <div class="faq">
 
         <h3 i18n>What is this?</h3>
-        <p i18n>Cardano gift cards are fancy paper wallets that you can gift. You can send them via email or print them and offer them in person.</p>
-        
+        <p i18n>Cardano gift cards are fancy paper wallets that you can gift. You can send them via email or print them
+            and offer them in person.</p>
+
         <h3 i18n>How does it work?</h3>
-        <p i18n>You create a Cardano wallet and deposit the amount to its charging address. Thanks to the instructions included, the person who receives the card can learn how to retrieve their fund.</p>
+        <p i18n>You create a Cardano wallet and deposit the amount to its charging address. Thanks to the instructions
+            included, the person who receives the card can learn how to retrieve their fund.</p>
         <h3 i18n>Is it secure?</h3>
-        <p i18n>Using a Cardano gift card is the least secure way to transfer cryptocurrency. We strongly recommend only moving small amounts of ADA. </p>
-        
+        <p i18n>Using a Cardano gift card is the least secure way to transfer cryptocurrency. We strongly recommend only
+            moving small amounts of ADA. </p>
+
         <h3 i18n>How are wallets generated?</h3>
-        <p i18n>Javascript code included in this page generates the wallet on your browser. We work hard to keep our website safe; however, you should only use those wallets for small disposable amounts.</p>
-        
+        <p i18n>Javascript code included in this page generates the wallet on your browser. We work hard to keep our
+            website safe; however, you should only use those wallets for small disposable amounts.</p>
+
         <h3 i18n>What is the safest way?</h3>
         <p i18n>The safest way is to print a card template, write your own wallet and gift it by hand. </p>
-        
+
         <div class="github">
-            <a href="https://github.com/RNDfr" target="_blank" alt="View source code on github">
-            <i class="btn-github-icon"> </i>
-            <div class="btn-github-text">{{t("view_github")}}</div>
+            <a href="https://github.com/RNDfr/cardano-gift-cards" target="_blank" alt="View source code on github">
+                <i class="btn-github-icon"> </i>
+                <div class="btn-github-text">{{t("view_github")}}</div>
             </a>
-          </div>
         </div>
+    </div>
 
 
 
@@ -153,12 +169,11 @@
 
 
 <div [hidden]="!loading" class="loader-wrapper">
-<div *ngIf="!cardRdy"  class="loader center"></div>
-<div *ngIf="cardRdy" class="btn-rdy center">
-    <span (click)="closeLoading()" class="close">x</span>
-    <p>{{t("card_rdy")}}</p>
-    <button (click)="openCard()">{{t("open")}}</button>
-</div>
+    <div *ngIf="!cardRdy" class="loader center"></div>
+    <div *ngIf="cardRdy" class="btn-rdy center">
+        <span (click)="closeLoading()" class="close">x</span>
+        <p>{{t("card_rdy")}}</p>
+        <button (click)="openCard()">{{t("open")}}</button>
+    </div>
 
 </div>
-

@@ -8,9 +8,9 @@ describe('GiftcardsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GiftcardsComponent ]
+      declarations: [GiftcardsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
